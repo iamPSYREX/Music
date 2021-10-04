@@ -14,7 +14,7 @@ from pyrogram.types import (
     Message,
 )
 import os
-import youtube_dl
+import yt_dlp
 from youtubesearchpython import VideosSearch
 from os import path
 import random
@@ -22,11 +22,6 @@ import asyncio
 import shutil
 from time import time
 import time as sedtime
-import youtube_dl
-import os
-from os import path
-import asyncio
-import youtube_dl
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from Music.MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from ..MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done)
@@ -57,12 +52,12 @@ from Music.MusicUtilities.helpers.administrator import adminsOnly
 async def stop_cmd(_, message): 
     chat_id = message.chat.id
     try:
-        clear(message.chat.id)
+        clear(chat_id)
     except QueueEmpty:
         pass                        
     await remove_active_chat(chat_id)
     try:
-        Music.pytgcalls.leave_group_call(message.chat.id)
+        await music.pytgcalls.leave_group_call(chat_id)
     except:
         pass   
     await message.reply_text("Erased Databae, Queues, Logs, Raw Files, Downloads.")
@@ -82,7 +77,7 @@ async def pause_cmd(_, message):
     elif not await is_music_playing(message.chat.id):
         return await message.reply_text("I dont think if something's playing on voice chat")   
     await music_off(chat_id)
-    Music.pytgcalls.pause_stream(message.chat.id)
+    await music.pytgcalls.pause_stream(chat_id)
     await message.reply_text(f"🎧 Voicechat Paused by {checking}!")
     
 @app.on_message(filters.command("resume"))
@@ -101,7 +96,7 @@ async def stop_cmd(_, message):
         return await message.reply_text("I dont think if something's playing on voice chat") 
     else:
         await music_on(chat_id)
-        Music.pytgcalls.resume_stream(message.chat.id)
+        await music.pytgcalls.resume_stream(chat_id)
         await message.reply_text(f"🎧 Voicechat Resumed by {checking}!")
 
 @app.on_message(filters.command(["stop", "end"]))
@@ -120,7 +115,7 @@ async def stop_cmd(_, message):
         except QueueEmpty:
             pass                        
         await remove_active_chat(chat_id)
-        Music.pytgcalls.leave_group_call(message.chat.id)
+        await music.pytgcalls.leave_group_call(chat_id)
         await message.reply_text(f"🎧 Voicechat End/Stopped by {checking}!") 
     else:
         return await message.reply_text("I dont think if something's playing on voice chat")
@@ -143,7 +138,7 @@ async def stop_cmd(_, message):
         if is_empty(chat_id):
             await remove_active_chat(chat_id)
             await message.reply_text("No more music in __Queue__ \n\nLeaving Voice Chat")
-            Music.pytgcalls.leave_group_call(message.chat.id)
+            await music.pytgcalls.leave_group_call(chat_id)
             return  
         else:
             afk = get(chat_id)['file']
@@ -155,7 +150,7 @@ async def stop_cmd(_, message):
                 mystic = await message.reply_text("Music is currently playing Playlist...\n\nDownloading Next Music From Playlist....")
                 url = (f"https://www.youtube.com/watch?v={afk}")
                 try:
-                    with youtube_dl.YoutubeDL(ytdl_opts) as ytdl:
+                    with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
                         x = ytdl.extract_info(url, download=False)
                 except Exception as e:
                     return await mystic.edit(f"Failed to download this video.\n\n**Reason**:{e}") 
@@ -199,7 +194,12 @@ async def stop_cmd(_, message):
                 loop = asyncio.get_event_loop()
                 xxx = await loop.run_in_executor(None, download, url, my_hook)
                 file = await convert(xxx)
-                Music.pytgcalls.change_stream(chat_id, file)
+                await music.pytgcalls.change_stream(
+                    chat_id, 
+                    InputAudioStream(
+                        file,
+                    ),
+                )
                 thumbnail = (x["thumbnail"])
                 duration = (x["duration"])
                 duration = round(x["duration"] / 60)
@@ -220,7 +220,12 @@ async def stop_cmd(_, message):
             )   
                 os.remove(thumb)
             else:      
-                Music.pytgcalls.change_stream(chat_id, afk)
+                await music.pytgcalls.change_stream(
+                    chat_id, 
+                    InputAudioStream(
+                        afk,
+                    ),
+                )
                 _chat_ = ((str(afk)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
                 f2 = open(f'search/{_chat_}title.txt', 'r')        
                 title =(f2.read())
