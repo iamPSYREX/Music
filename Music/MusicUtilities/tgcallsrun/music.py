@@ -61,7 +61,7 @@ async def on_stream_end(update: Update) -> None:
         queues.task_done(chat_id)
         if queues.is_empty(chat_id):
             await remove_active_chat(chat_id)               
-            pytgcalls.leave_group_call(chat_id)
+            await pytgcalls.leave_group_call(chat_id)
         else:
             afk = queues.get(chat_id)['file']
             f1 = (afk[0])
@@ -145,7 +145,7 @@ Downloading....
             )   
                 os.remove(thumb)
             else:      
-                pytgcalls.change_stream(
+                await pytgcalls.change_stream(
                     chat_id, afk
                 )
                 _chat_ = ((str(afk)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
