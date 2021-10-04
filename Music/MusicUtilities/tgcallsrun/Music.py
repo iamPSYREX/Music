@@ -2,6 +2,7 @@ import os
 from typing import Dict
 import random
 from pytgcalls import PyTgCalls
+from pytgcalls.types import Update
 from Music import app, BOT_USERNAME
 from ... import config
 from pyrogram import Client
@@ -16,7 +17,7 @@ import os
 from os import path
 from Music import BOT_USERNAME
 import asyncio
-import youtube_dl
+import yt_dlp
 from Music.converter import converter
 from pyrogram.types import Message
 from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_theme)
@@ -54,8 +55,9 @@ async def on_closed(chat_id: int) -> None:
 
 
 @pytgcalls.on_stream_end()
-async def on_stream_end(chat_id: int) -> None:
+async def on_stream_end(update: Update) -> None:
     try:
+        chat_id = update.chat_id
         queues.task_done(chat_id)
         if queues.is_empty(chat_id):
             await remove_active_chat(chat_id)               
