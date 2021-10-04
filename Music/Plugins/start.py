@@ -1,4 +1,4 @@
-import youtube_dl
+import yt_dlp
 from pyrogram import filters
 from pyrogram import Client
 from Music import app, SUDOERS, BOT_ID, BOT_USERNAME, OWNER
@@ -42,7 +42,7 @@ pstart_markup=InlineKeyboardMarkup(
                         "💬 Support", url=f"https://t.me/OfficialMusicSupport")
                 ],[
                     InlineKeyboardButton(
-                        "➕ Add Me To Your Group", url=f"https://t.me/MusicxPersonalBot?startgroup=true")
+                        "➕ Add Me To Your Group", url=f"https://t.me/Tg_Vc_00_Bot?startgroup=true")
                 ]
             ]
         )
