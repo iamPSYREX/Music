@@ -51,7 +51,7 @@ def time_to_seconds(time):
         int(x) * 60 ** i for i, x in enumerate(reversed(stringt.split(":")))
     )
 
-@Client.on_message(command(["play", "play@@Tg_Vc_00_Bot"]))
+@Client.on_message(command(["play"]))
 async def play(_, message: Message):
     chat_id = message.chat.id
     if not await is_served_chat(chat_id):
@@ -158,7 +158,7 @@ async def play(_, message: Message):
         await LOG_CHAT(message, what)
         query = message.text.split(None, 1)[1]
         mystic = await message.reply_text("Processing Url")
-        ydl_opts = {"format": "bestaudio[ext=m4a]"}
+        ydl_opts = {"format": "bestaudio/best"}
         try:
             results = VideosSearch(query, limit=1)
             for result in results.result()["result"]:
@@ -315,7 +315,13 @@ async def play(_, message: Message):
     else:
         await music_on(chat_id)
         await add_active_chat(chat_id)
-        Music.pytgcalls.join_group_call(message.chat.id, file)
+        await music.pytgcalls.join_group_call(
+            chat_id, 
+            InputAudioStream(
+                file,
+            ),
+            stream_type=StreamType().local_stream,
+        )
         _chat_ = ((str(file)).replace("_","", 1).replace("/","", 1).replace(".","", 1))                                                                                           
         checking = f"[{message.from_user.first_name}](tg://user?id={message.from_user.id})"
         if fucksemx != 1:
@@ -456,7 +462,13 @@ async def startyuplay(_,CallbackQuery):
     else:
         await music_on(chat_id)
         await add_active_chat(chat_id)
-        Music.pytgcalls.join_group_call(chat_id, file) 
+        await music.pytgcalls.join_group_call(
+            chat_id, 
+            InputAudioStream(
+                file,
+            ),
+            stream_type=StreamType().local_stream,
+        )
         buttons = play_markup(videoid, user_id)
         await mystic.delete()
         m = await CallbackQuery.message.reply_photo(
