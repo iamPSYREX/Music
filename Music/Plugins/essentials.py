@@ -1,4 +1,3 @@
-from pyrogram import filters
 import os
 import subprocess
 import shutil
@@ -14,24 +13,24 @@ from Music.MusicUtilities.database.blacklistchat import (blacklisted_chats, blac
 from Music.MusicUtilities.database.gbanned import (get_gbans_count, is_gbanned_user, add_gban_user, add_gban_user)
 from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_theme)
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
-from ..config import DURATION_LIMIT
+from Music.config import DURATION_LIMIT
 from Music.MusicUtilities.tgcallsrun import (Music, clear, get, is_empty, put, task_done)
-from ..MusicUtilities.helpers.decorators import errors
-from ..MusicUtilities.helpers.filters import command
-from ..MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
-from ..MusicUtilities.helpers.logger import LOG_CHAT
-from ..MusicUtilities.helpers.thumbnails import gen_thumb
-from ..MusicUtilities.helpers.chattitle import CHAT_TITLE
-from ..MusicUtilities.helpers.ytdl import ytdl
-from ..MusicUtilities.helpers.inline import (play_keyboard, search_markup)
+from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
+from Music.MusicUtilities.helpers.logger import LOG_CHAT
+from Music.MusicUtilities.helpers.thumbnails import gen_thumb
+from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
+from Music.MusicUtilities.helpers.ytdl import ytdl
+from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup)
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 from sys import version as pyver
 from pyrogram import Client, filters
 from pyrogram.types import Message
 from Music import app, SUDOERS, OWNER
-from ..MusicUtilities.helpers.filters import command
-from ..MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.decorators import errors
 from Music.MusicUtilities.database.functions import start_restart_stage
 
 @Client.on_message(command('updatep') & filters.user(OWNER))
