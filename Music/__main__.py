@@ -2,13 +2,13 @@ import asyncio
 import time
 import uvloop
 import importlib
-from pyrogram import Client as Bot, idle
+from pyrogram import Client as Bot
 from .config import API_ID, API_HASH, BOT_TOKEN, MONGO_DB_URI, SUDO_USERS, LOG_GROUP_ID
 from Music import BOT_NAME, ASSNAME, app, chacha, aiohttpsession
 from Music.MusicUtilities.database.functions import clean_restart_stage
 from Music.MusicUtilities.database.queue import (get_active_chats, remove_active_chat)
 from .MusicUtilities.tgcallsrun import run
-from pyrogram import Client, idle
+from pytgcalls import idle
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 import time
 
@@ -60,6 +60,7 @@ loop = asyncio.get_event_loop()
 loop.run_until_complete(load_start())
 
 run()
+idle()
 loop.close()
 
 print("[LOG] CLOSING BOT")
