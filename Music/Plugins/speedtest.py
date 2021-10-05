@@ -1,7 +1,7 @@
 import os
 import speedtest
 import wget
-from ..MusicUtilities.helpers.gets import bytes
+from Music.MusicUtilities.helpers.gets import bytes
 from Music import app, SUDOERS, BOT_ID
 from pyrogram import filters, Client
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
