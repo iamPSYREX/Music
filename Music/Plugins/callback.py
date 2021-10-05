@@ -8,12 +8,14 @@ from pyrogram.types import (
 )
 from asyncio import QueueEmpty
 from pyrogram import Client, filters
+from pytgcalls import StreamType
+from pytgcalls.types.input_stream import InputAudioStream
 from Music import app, BOT_USERNAME, dbb, SUDOERS
 import os
 import yt_dlp
 from youtubesearchpython import VideosSearch
 from Music.config import LOG_GROUP_ID
-from ..MusicUtilities.tgcallsrun import ASS_ACC
+from Music.MusicUtilities.tgcallsrun import ASS_ACC
 from os import path
 import random
 import time as sedtime 
@@ -21,36 +23,35 @@ import asyncio
 import shutil
 from time import time
 import yt_dlp
-from .. import converter
+from Music import converter
 import aiohttp
 from aiohttp import ClientResponseError, ServerTimeoutError, TooManyRedirects
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
-from Music.MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done, smexy)
-from ..MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done)
+from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.helpers.decorators import errors
 from Music.MusicUtilities.helpers.filters import command, other_filters
 from Music.MusicUtilities.helpers.paste import paste
-from Music.MusicUtilities.tgcallsrun import (Music, clear, get, is_empty, put, task_done)
+from Music.MusicUtilities.tgcallsrun import (music, clear, get, is_empty, put, task_done)
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.database.playlist import (get_playlist_count, _get_playlists, get_note_names, get_playlist, save_playlist, delete_playlist)
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
 from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup, audio_markup)
 from Music.MusicUtilities.helpers.inline import play_keyboard, confirm_keyboard, play_list_keyboard, close_keyboard, confirm_group_keyboard
-from Music.MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done, smexy)
+from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
 from Music.MusicUtilities.database.blacklistchat import (blacklisted_chats, blacklist_chat, whitelist_chat)
 from Music.MusicUtilities.database.gbanned import (get_gbans_count, is_gbanned_user, add_gban_user, add_gban_user)
 from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_theme)
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
-from ..config import DURATION_LIMIT, ASS_ID
-from ..MusicUtilities.helpers.decorators import errors
-from ..MusicUtilities.helpers.filters import command
-from ..MusicUtilities.helpers.gets import (get_url, themes, random_assistant, ass_det)
-from ..MusicUtilities.helpers.thumbnails import gen_thumb
-from ..MusicUtilities.helpers.chattitle import CHAT_TITLE
-from ..MusicUtilities.helpers.ytdl import ytdl_opts 
-from ..MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup)
+from Music.config import DURATION_LIMIT, ASS_ID
+from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant, ass_det)
+from Music.MusicUtilities.helpers.thumbnails import gen_thumb
+from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
+from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
+from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup)
 import requests
 from pyrogram.types import (
     CallbackQuery,
@@ -114,7 +115,7 @@ async def pausevc(_,CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
         if await is_music_playing(CallbackQuery.message.chat.id):
-            Music.pytgcalls.pause_stream(CallbackQuery.message.chat.id)
+            await music.pytgcalls.pause_stream(chat_id)
             await music_off(chat_id)
             await CallbackQuery.answer("Voicechat Paused", show_alert=True)
             user_id = CallbackQuery.from_user.id
@@ -142,7 +143,7 @@ async def resumevc(_,CallbackQuery):
             return    
         else:
             await music_on(chat_id)
-            Music.pytgcalls.resume_stream(CallbackQuery.message.chat.id)
+            await music.pytgcalls.resume_stream(chat_id)
             await CallbackQuery.answer("Voicechat Resumed", show_alert=True)
             user_id = CallbackQuery.from_user.id
             user_name = CallbackQuery.from_user.first_name
@@ -171,7 +172,7 @@ async def skipvc(_,CallbackQuery):
             await remove_active_chat(chat_id)
             await CallbackQuery.answer()
             await CallbackQuery.message.reply(f"**__Skip Button Used By__** {rpk}\n\nNo more music in __Queues__ \n\nLeaving Voice Chat")
-            Music.pytgcalls.leave_group_call(CallbackQuery.message.chat.id)
+            await music.pytgcalls.leave_group_call(chat_id)
             return
         else:
             await CallbackQuery.answer("Voicechat Skipped", show_alert=True)
@@ -228,7 +229,12 @@ async def skipvc(_,CallbackQuery):
                 loop = asyncio.get_event_loop()
                 xx = await loop.run_in_executor(None, download, url, my_hook)
                 file = await convert(xx)
-                Music.pytgcalls.change_stream(chat_id, file)
+                await music.pytgcalls.change_stream(
+                    chat_id, 
+                    InputAudioStream(
+                        file,
+                    ),
+                )
                 thumbnail = (x["thumbnail"])
                 duration = (x["duration"])
                 duration = round(x["duration"] / 60)
@@ -252,7 +258,12 @@ async def skipvc(_,CallbackQuery):
             )   
                 os.remove(thumb)
             else:      
-                Music.pytgcalls.change_stream(chat_id, afk)
+                await music.pytgcalls.change_stream(
+                    chat_id, 
+                    InputAudioStream(
+                        afk,
+                    ),
+                )
                 _chat_ = ((str(afk)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
                 f2 = open(f'search/{_chat_}title.txt', 'r')        
                 title =(f2.read())
@@ -293,7 +304,7 @@ async def stopvc(_,CallbackQuery):
         except QueueEmpty:
             pass
         try:
-            Music.pytgcalls.leave_group_call(CallbackQuery.message.chat.id)
+            await music.pytgcalls.leave_group_call(chat_id)
         except Exception as e:
             pass
         await remove_active_chat(CallbackQuery.message.chat.id) 
@@ -305,8 +316,6 @@ async def stopvc(_,CallbackQuery):
     else:
         await CallbackQuery.answer(f"Nothing's playing on Music!", show_alert=True)
 
-        
-           
         
 @Client.on_callback_query(filters.regex("play_playlist"))
 async def play_playlist(_,CallbackQuery):
@@ -413,7 +422,13 @@ Personal Playlist Playing."""
                     file = await convert(xx)
                     await music_on(chat_id)
                     await add_active_chat(chat_id)
-                    Music.pytgcalls.join_group_call(chat_id, file)
+                    await music.pytgcalls.join_group_call(
+                        chat_id, 
+                        InputAudioStream(
+                            file,
+                        ),
+                        stream_type=StreamType().local_stream,
+                    )
                     theme = random.choice(themes)
                     ctitle = CallbackQuery.message.chat.title
                     ctitle = await CHAT_TITLE(ctitle)
@@ -551,7 +566,13 @@ Group Playlist Playing."""
                     file = await convert(xx)
                     await music_on(chat_id)
                     await add_active_chat(chat_id)
-                    Music.pytgcalls.join_group_call(chat_id, file)
+                    await music.pytgcalls.join_group_call(
+                        chat_id, 
+                        InputAudioStream(
+                            file,
+                        ),
+                        stream_type=StreamType().local_stream,
+                    )
                     theme = random.choice(themes)
                     ctitle = CallbackQuery.message.chat.title
                     ctitle = await CHAT_TITLE(ctitle)
