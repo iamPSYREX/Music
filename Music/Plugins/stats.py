@@ -8,12 +8,12 @@ from Music.MusicUtilities.database.gbanned import get_gbans_count
 from Music.MusicUtilities.database.chats import get_served_chats
 from Music.MusicUtilities.database.sudo import (get_sudoers, get_sudoers, remove_sudo)
 from Music.MusicUtilities.database.playlist import get_playlist_count
-from ..MusicUtilities.helpers.time import get_readable_time
+from Music.MusicUtilities.helpers.time import get_readable_time
 from Music import app, SUDOERS, Music_START_TIME
 import os 
 import time
 from pymongo import MongoClient
-from ..config import MONGO_DB_URI as smex
+from Music.config import MONGO_DB_URI as smex
 
 @app.on_message(filters.command("stats") & ~filters.edited)
 async def gstats(_, message):
@@ -45,7 +45,7 @@ async def gstats(_, message):
     free = (hdd.free / (1024.0 ** 3))
     free = str(free)
     msg = f"""
-**Global Stats of Music Private Music Bot**:\n\n
+**Global Stats of Private Music Bot**:\n\n
 [•]<u>__**System Stats**__</u>
 **Music Uptime:** {uptime}
 **System Proc:** Online
