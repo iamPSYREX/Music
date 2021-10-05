@@ -1,7 +1,7 @@
 from Music import app, SUDOERS
 from pyrogram import filters, Client
 from pyrogram.types import Message
-from ..MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.filters import command
 import subprocess
 import shutil
 import os
