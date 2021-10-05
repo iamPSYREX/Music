@@ -13,9 +13,11 @@ import psutil
 from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram.types import Voice
+from pytgcalls import StreamType
+from pytgcalls.types.input_stream import InputAudioStream
 from sys import version as pyver
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
-from ..MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done, ASS_ACC)
+from ..MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, ASS_ACC)
 from Music.MusicUtilities.database.queue import (get_active_chats, is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
 from Music.MusicUtilities.database.chats import (get_served_chats, is_served_chat, add_served_chat, get_served_chats)
