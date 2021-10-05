@@ -22,8 +22,9 @@ import shutil
 from time import time
 import time as sedtime
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
-from Music.MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done, smexy)
+from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from pyrogram.types import Message
+from pytgcalls.types.input_stream import InputAudioStream
 from Music.MusicUtilities.helpers.thumbnails import gen_thumb
 from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
 from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
