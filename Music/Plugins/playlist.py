@@ -6,13 +6,13 @@ import asyncio
 import shutil
 from time import time
 import yt_dlp
-from .. import converter
+from Music import converter
 from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram.types import Voice
-from ..config import assnumber
+from Music.config import assnumber
 from Music import (app, BOT_USERNAME, BOT_ID)
-from ..MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
+from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
 from Music.MusicUtilities.database.blacklistchat import (blacklisted_chats, blacklist_chat, whitelist_chat)
@@ -21,14 +21,14 @@ from Music.MusicUtilities.database.playlist import (get_playlist_count, _get_pla
 from Music.MusicUtilities.helpers.inline import play_keyboard, confirm_keyboard, play_list_keyboard, close_keyboard, confirm_group_keyboard
 from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_theme)
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
-from ..config import DURATION_LIMIT, ASS_ID, assnumber
-from ..MusicUtilities.helpers.decorators import errors
-from ..MusicUtilities.helpers.filters import command
-from ..MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
-from ..MusicUtilities.helpers.thumbnails import gen_thumb
-from ..MusicUtilities.helpers.chattitle import CHAT_TITLE
-from ..MusicUtilities.helpers.ytdl import ytdl_opts 
-from ..MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup)
+from Music.config import DURATION_LIMIT, ASS_ID, assnumber
+from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
+from Music.MusicUtilities.helpers.thumbnails import gen_thumb
+from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
+from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
+from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup)
 from pyrogram import filters
 from typing import Union
 from youtubesearchpython import VideosSearch
@@ -113,4 +113,4 @@ async def delgroupplaylist(_, message):
                     return await message.reply_text(f"**Deleted the {count} music in group's playlist**")
                 else:
                     return await message.reply_text(f"**No such saved music in Group playlist.**")                                
-        await message.reply_text("You have no such music in Group Playlist.") 
+        await message.reply_text("You have no such music in Group Playlist.")
