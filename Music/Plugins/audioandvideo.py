@@ -14,7 +14,7 @@ from pyrogram import Client, filters
 import wget
 import os
 from os import path
-from ..MusicUtilities.helpers.thumbnails import down_thumb
+from Music.MusicUtilities.helpers.thumbnails import down_thumb
 from Music import app
 from Music.MusicUtilities.helpers.inline import others_markup, play_markup
 from pykeyboard import InlineKeyboard
