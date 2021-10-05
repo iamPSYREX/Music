@@ -5,11 +5,11 @@ from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import InputAudioStream
 from Music import app, BOT_USERNAME
-from ... import config
+from Music import config
 from pyrogram import Client
 from asyncio import QueueEmpty
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
-from . import queues
+from Music.MusicUtilities.tgcallsrun import queues
 from Music.config import LOG_GROUP_ID
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from Music.MusicUtilities.helpers.inline import play_keyboard
