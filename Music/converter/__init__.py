@@ -4,6 +4,6 @@ from os import mkdir
 if 'raw_files' not in listdir():
     mkdir('raw_files')
 
-from .converter import convert
+from Music.converter import convert
 
 __all__ = ['convert']
