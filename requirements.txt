@@ -30,3 +30,4 @@ uvloop
 yt-dlp
 telegraph
 hachoir
+lyricsgenius
