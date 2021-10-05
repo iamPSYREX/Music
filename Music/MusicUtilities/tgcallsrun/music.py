@@ -39,7 +39,7 @@ smexy = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
 pytgcalls = PyTgCalls(smexy)
 
 @pytgcalls.on_kicked()
-async def on_kicked(chat_id: int) -> None:
+async def on_kicked(client: PyTgCalls, chat_id: int) -> None:
     try:
         queues.clear(chat_id)
     except QueueEmpty:
@@ -47,7 +47,7 @@ async def on_kicked(chat_id: int) -> None:
     await remove_active_chat(chat_id)
             
 @pytgcalls.on_closed_voice_chat()
-async def on_closed(chat_id: int) -> None:
+async def on_closed(client: PyTgCalls, chat_id: int) -> None:
     try:
         queues.clear(chat_id)
     except QueueEmpty:
@@ -56,9 +56,9 @@ async def on_closed(chat_id: int) -> None:
 
 
 @pytgcalls.on_stream_end()
-async def on_stream_end(update: Update) -> None:
+async def on_stream_end(client: PyTgCalls, update: Update) -> None:
+    chat_id = update.chat_id
     try:
-        chat_id = update.chat_id
         queues.task_done(chat_id)
         if queues.is_empty(chat_id):
             await remove_active_chat(chat_id)               
