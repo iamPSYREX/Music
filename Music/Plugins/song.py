@@ -6,7 +6,7 @@ import asyncio
 import shutil
 from pytube import YouTube
 from yt_dlp import YoutubeDL
-from .. import converter
+from Music import converter
 import yt_dlp
 import shutil
 import psutil
@@ -17,19 +17,19 @@ from sys import version as pyver
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
 from Music.MusicUtilities.database.chats import (get_served_chats, is_served_chat, add_served_chat, get_served_chats)
-from ..MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup, audio_markup, play_list_keyboard)
+from Music.MusicUtilities.helpers.inline import (play_keyboard, search_markup, play_markup, playlist_markup, audio_markup, play_list_keyboard)
 from Music.MusicUtilities.database.blacklistchat import (blacklisted_chats, blacklist_chat, whitelist_chat)
 from Music.MusicUtilities.database.gbanned import (get_gbans_count, is_gbanned_user, add_gban_user, add_gban_user)
 from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_theme)
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
-from ..config import DURATION_LIMIT
-from ..MusicUtilities.helpers.decorators import errors
-from ..MusicUtilities.helpers.filters import command
-from ..MusicUtilities.helpers.gets import (get_url, themes, random_assistant, ass_det)
-from ..MusicUtilities.helpers.logger import LOG_CHAT
-from ..MusicUtilities.helpers.thumbnails import down_thumb
-from ..MusicUtilities.helpers.chattitle import CHAT_TITLE
-from ..MusicUtilities.helpers.ytdl import ytdl_opts 
+from Music.config import DURATION_LIMIT
+from Music.MusicUtilities.helpers.decorators import errors
+from Music.MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant, ass_det)
+from Music.MusicUtilities.helpers.logger import LOG_CHAT
+from Music.MusicUtilities.helpers.thumbnails import down_thumb
+from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
+from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
 from pyrogram import filters
 from typing import Union
 import subprocess
