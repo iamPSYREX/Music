@@ -3,10 +3,10 @@ from pyrogram import filters
 from pyrogram import Client
 from Music import app, SUDOERS, BOT_ID, BOT_USERNAME, OWNER
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME
-from ..MusicUtilities.helpers.inline import start_keyboard, personal_markup
-from ..MusicUtilities.helpers.thumbnails import down_thumb
-from ..MusicUtilities.helpers.ytdl import ytdl_opts 
-from ..MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.inline import start_keyboard, personal_markup
+from Music.MusicUtilities.helpers.thumbnails import down_thumb
+from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
+from Music.MusicUtilities.helpers.filters import command
 from pyrogram.types import (
     CallbackQuery,
     InlineKeyboardButton,
@@ -21,11 +21,11 @@ from Music.MusicUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="🎚 Commands Menu", url="https://telegra.ph/Music-Music-Bot-05-28")
+                InlineKeyboardButton(text="🎚 Commands Menu", url="https://t.me/technicalhunter")
             ],
             [ 
-                InlineKeyboardButton(text="📨Official Channel", url="https://t.me/OfficialMusic"),
-                InlineKeyboardButton(text="📨Support Group", url="https://t.me/OfficialMusicSupport")
+                InlineKeyboardButton(text="📨Official Channel", url="https://t.me/technicalhunter0"),
+                InlineKeyboardButton(text="📨Support Group", url="https://t.me/Technical_Hunter")
             ],
     ]
     return "🎛  **This is Music Music Bot**", buttons
@@ -34,12 +34,12 @@ pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🧰 Commands List", url=f"https://telegra.ph/Music-Music-Bot-05-28")],
+                        "🧰 Commands List", url=f"https://t.me/technicalhunter0")],
                 [
                     InlineKeyboardButton(
-                        "📲 Channel", url=f"https://t.me/OfficialMusic"), 
+                        "📲 Channel", url=f"https://t.me/Technical_Hunter"), 
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/OfficialMusicSupport")
+                        "💬 Support", url=f"https://t.me/technicalhunter")
                 ],[
                     InlineKeyboardButton(
                         "➕ Add Me To Your Group", url=f"https://t.me/Tg_Vc_00_Bot?startgroup=true")
@@ -116,7 +116,7 @@ async def play(_, message: Message):
 📎**Channel Link:** [Visit From Here]({x["channel_url"]})
 🔗**Link:** [Link]({x["webpage_url"]})
 
-⚡️ __Searched Powered By Music Private Music Bot__"""
+⚡️ __Searched Powered By Private Music Bot__"""
             link = (x["webpage_url"])
             buttons = personal_markup(link)
             userid = message.from_user.id
