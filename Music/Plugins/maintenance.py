@@ -2,7 +2,7 @@ from Music import app, SUDOERS
 from pyrogram import filters, Client
 from pyrogram.types import Message
 from Music.MusicUtilities.database.onoff import (is_on_off, add_on, add_off)
-from ..MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.filters import command
 
 
 @Client.on_message(command("Musicp") & filters.user(SUDOERS))
