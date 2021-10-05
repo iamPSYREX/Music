@@ -6,7 +6,7 @@ import subprocess
 import shutil
 import os
 from Music.MusicUtilities.database.functions import start_restart_stage
-from ..MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done)
+from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done)
 from Music.MusicUtilities.database.queue import get_active_chats
 from Music.MusicUtilities.database.queue import (get_active_chats, is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 
@@ -46,4 +46,4 @@ async def theme_func(_, message):
     x = await message.reply_text(f"__Restarting Music!__")   
     await start_restart_stage(x.chat.id, x.message_id)
     os.execvp(f"python{str(pyver.split(' ')[0])[:3]}", [
-              f"python{str(pyver.split(' ')[0])[:3]}", "-m", "Music"])    
+              f"python{str(pyver.split(' ')[0])[:3]}", "-m", "Music"])
