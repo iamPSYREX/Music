@@ -382,7 +382,7 @@ __Youtube Inline Download Powered By Music__ """
             img.resize((90, height))
         img.save(thumb_image_path, "JPEG")
     audio_command = [
-        "youtube-dl",
+        "yt-dlp",
         "-c",
         "--prefer-ffmpeg",
         "--extract-audio",
@@ -392,7 +392,7 @@ __Youtube Inline Download Powered By Music__ """
         yturl,
     ]
     video_command = [
-        "youtube-dl",
+        "yt-dlp",
         "-c",
         "--embed-subs",
         "-f", f"{format_id}+140",
