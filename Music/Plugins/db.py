@@ -3,7 +3,7 @@ from pyrogram import filters, Client
 from pyrogram.types import Message
 import asyncio
 from Music.MusicUtilities.database.chats import (get_served_chats, is_served_chat, add_served_chat, get_served_chats)
-from ..MusicUtilities.helpers.filters import command
+from Music.MusicUtilities.helpers.filters import command
 
 
 @app.on_message(filters.command("broadcastp") & filters.user(SUDOERS))
