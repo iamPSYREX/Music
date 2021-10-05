@@ -3,7 +3,6 @@ from pyrogram import Client, filters
 from Music import app
 from Music.MusicUtilities.helpers.decorators import errors
 from Music.MusicUtilities.helpers.filters import command, other_filters
-from Music.MusicUtilities.tgcallsrun import (Music, clear, get, is_empty, put, task_done)
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
 from Music.MusicUtilities.helpers.inline import play_keyboard
 from pyrogram.types import (
@@ -24,7 +23,6 @@ from time import time
 import time as sedtime
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from Music.MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done, smexy)
-from ..MusicUtilities.tgcallsrun import (Music, convert, download, clear, get, is_empty, put, task_done)
 from pyrogram.types import Message
 from Music.MusicUtilities.helpers.thumbnails import gen_thumb
 from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
