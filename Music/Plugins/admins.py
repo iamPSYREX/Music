@@ -37,6 +37,7 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message, )
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
+from Music.MusicUtilities.helpers.administrator import adminsOnly
 flex = {}
 
 async def member_permissions(chat_id: int, user_id: int):
@@ -45,7 +46,6 @@ async def member_permissions(chat_id: int, user_id: int):
     if member.can_manage_voice_chats:
         perms.append("can_manage_voice_chats")
     return perms
-from Music.MusicUtilities.helpers.administrator import adminsOnly
 
 @app.on_message(filters.command("cleandb"))
 async def stop_cmd(_, message): 
@@ -91,7 +91,7 @@ async def stop_cmd(_, message):
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
         return await message.reply_text("I dont think if something's playing on voice chat")
-    elif await is_music_playing(message.chat.id):
+    elif await is_music_playing(chat_id):
         return await message.reply_text("I dont think if something's playing on voice chat") 
     else:
         await music_on(chat_id)
@@ -110,7 +110,7 @@ async def stop_cmd(_, message):
     chat_id = message.chat.id
     if await is_active_chat(chat_id):
         try:
-            clear(message.chat.id)
+            clear(chat_id)
         except QueueEmpty:
             pass                        
         await remove_active_chat(chat_id)
