@@ -353,15 +353,15 @@ __Youtube Inline Download Powered By Music__ """
     channel = (x["channel_url"])
     perf = (x['uploader'])
     thumbnail_url = (x["thumbnail"])
-    filext = "%(title)s.jpg"
+    filext = "%(title)s.png"
     main =  os.getcwd()
     img = wget.download(thumbnail_url)
     im = Image.open(img).convert("RGB")
     output_directory = os.path.join(os.getcwd(), "search", str(userid))
     if not os.path.isdir(output_directory):
         os.makedirs(output_directory)
-    thumb_image_path = f"{output_directory}.jpg"
-    im.save(thumb_image_path,"jpeg")
+    thumb_image_path = f"{output_directory}.png"
+    im.save(thumb_image_path,"png")
     print(thumb_image_path)
     width = 0
     height = 0
@@ -380,7 +380,7 @@ __Youtube Inline Download Powered By Music__ """
             img.resize((320, height))
         else:
             img.resize((90, height))
-        img.save(thumb_image_path, "JPEG")
+        img.save(thumb_image_path, "png")
     audio_command = [
         "yt-dlp",
         "-c",
