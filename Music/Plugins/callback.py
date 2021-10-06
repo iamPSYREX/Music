@@ -114,7 +114,7 @@ async def pausevc(_,CallbackQuery):
     checking = CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
-        if await is_music_playing(CallbackQuery.message.chat.id):
+        if await is_music_playing(chat_id):
             await music.pytgcalls.pause_stream(chat_id)
             await music_off(chat_id)
             await CallbackQuery.answer("Voicechat Paused", show_alert=True)
@@ -138,7 +138,7 @@ async def resumevc(_,CallbackQuery):
     checking = CallbackQuery.from_user.first_name
     chat_id = CallbackQuery.message.chat.id
     if await is_active_chat(chat_id):
-        if await is_music_playing(CallbackQuery.message.chat.id):
+        if await is_music_playing(chat_id):
             await CallbackQuery.answer("I dont think if something's paused on voice chat", show_alert=True)
             return    
         else:
@@ -163,8 +163,8 @@ async def skipvc(_,CallbackQuery):
     chat_id = CallbackQuery.message.chat.id
     chat_title = CallbackQuery.message.chat.title
     if await is_active_chat(chat_id):
-        task_done(CallbackQuery.message.chat.id)
-        if is_empty(CallbackQuery.message.chat.id):
+        task_done(chat_id)
+        if is_empty(chat_id):
             user_id = CallbackQuery.from_user.id
             await remove_active_chat(chat_id) 
             user_name = CallbackQuery.from_user.first_name
@@ -307,7 +307,7 @@ async def stopvc(_,CallbackQuery):
             await music.pytgcalls.leave_group_call(chat_id)
         except Exception as e:
             pass
-        await remove_active_chat(CallbackQuery.message.chat.id) 
+        await remove_active_chat(chat_id) 
         await CallbackQuery.answer("Voicechat Stopped", show_alert=True)
         user_id = CallbackQuery.from_user.id
         user_name = CallbackQuery.from_user.first_name
@@ -333,7 +333,7 @@ async def play_playlist(_,CallbackQuery):
     if str(smex) == "personal":
         if CallbackQuery.from_user.id != int(user_id):
             return await CallbackQuery.answer("This is not for you! Play your own playlist", show_alert=True)
-        _playlist = await get_note_names(CallbackQuery.from_user.id)
+        _playlist = await get_note_names(userid)
         if not _playlist:
             return await CallbackQuery.answer(f"You have no playlist on servers.", show_alert=True)
         else:
