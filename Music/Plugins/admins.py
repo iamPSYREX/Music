@@ -37,7 +37,7 @@ from pyrogram.errors import UserAlreadyParticipant, UserNotParticipant
 from pyrogram.types import Message, Audio, Voice
 from pyrogram.types import (CallbackQuery, InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto, Message, )
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
-from Music.MusicUtilities.helpers.administrator import adminsOnly
+
 flex = {}
 
 async def member_permissions(chat_id: int, user_id: int):
@@ -46,6 +46,7 @@ async def member_permissions(chat_id: int, user_id: int):
     if member.can_manage_voice_chats:
         perms.append("can_manage_voice_chats")
     return perms
+from Music.MusicUtilities.helpers.administrator import adminsOnly
 
 @app.on_message(filters.command("cleandb"))
 async def stop_cmd(_, message): 
