@@ -99,7 +99,7 @@ async def play(_, message: Message):
         if str(finxx) == "inf":
             query = ((str(query)).replace("info_","", 1))
             query = (f"https://www.youtube.com/watch?v={query}")
-            with youtube_dl.YoutubeDL(ytdl_opts) as ytdl:
+            with yt_dlp.YoutubeDL(ytdl_opts) as ytdl:
                 x = ytdl.extract_info(query, download=False)
             thumbnail = (x["thumbnail"])
             searched_text = f"""
