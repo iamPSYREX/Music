@@ -15,6 +15,7 @@ from pyrogram.types import Message
 from pyrogram.types import Voice
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 from sys import version as pyver
 from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, ASS_ACC)
@@ -319,8 +320,10 @@ async def play(_, message: Message):
         await add_active_chat(chat_id)
         await music.pytgcalls.join_group_call(
             chat_id, 
-            InputAudioStream(
-                file,
+            InputStream(
+                InputAudioStream(
+                    file,
+                ),
             ),
             stream_type=StreamType().local_stream,
         )
@@ -466,8 +469,10 @@ async def startyuplay(_,CallbackQuery):
         await add_active_chat(chat_id)
         await music.pytgcalls.join_group_call(
             chat_id, 
-            InputAudioStream(
-                file,
+            InputStream(
+                InputAudioStream(
+                    file,
+                ),
             ),
             stream_type=StreamType().local_stream,
         )
