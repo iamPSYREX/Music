@@ -4,6 +4,7 @@ import random
 from pytgcalls import PyTgCalls
 from pytgcalls.types import Update
 from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 from Music import app, BOT_USERNAME
 from Music import config
 from pyrogram import Client
@@ -127,8 +128,10 @@ Downloading....
                 file = await convert(xx)
                 await pytgcalls.change_stream(
                     chat_id, 
-                    InputAudioStream(
-                        file,
+                    InputStream(
+                        InputAudioStream(
+                            file,
+                        ),
                     ),
                 )
                 thumbnail = (x["thumbnail"])
@@ -153,8 +156,10 @@ Downloading....
             else:      
                 await pytgcalls.change_stream(
                     chat_id, 
-                    InputAudioStream(
-                        afk,
+                    InputStream(
+                        InputAudioStream(
+                            afk,
+                        ),
                     ),
                 )
                 _chat_ = ((str(afk)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
