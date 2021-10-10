@@ -21,25 +21,25 @@ from Music.MusicUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="🎚 Commands Menu", url="https://t.me/technicalhunter")
+                InlineKeyboardButton(text="🎚 Commands Menu", url="https://telegra.ph/Music-Bot-10-10")
             ],
             [ 
-                InlineKeyboardButton(text="📨Official Channel", url="https://t.me/technicalhunter0"),
-                InlineKeyboardButton(text="📨Support Group", url="https://t.me/Technical_Hunter")
+                InlineKeyboardButton(text="📨Official Channel", url="https://t.me/joinchat/9gdl_KgFqbIxZmZh"),
+                InlineKeyboardButton(text="📨Support Group", url="https://t.me/joinchat/9gdl_KgFqbIxZmZh")
             ],
     ]
-    return "🎛  **This is Music Music Bot**", buttons
+    return "🎛  **This is Music Bot**", buttons
 
 pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🧰 Commands List", url=f"https://t.me/technicalhunter0")],
+                        "🧰 Commands List", url=f"https://telegra.ph/Music-Bot-10-10")],
                 [
                     InlineKeyboardButton(
-                        "📲 Channel", url=f"https://t.me/Technical_Hunter"), 
+                        "📲 Channel", url=f"https://t.me/joinchat/9gdl_KgFqbIxZmZh"), 
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/technicalhunter")
+                        "💬 Support", url=f"https://t.me/joinchat/9gdl_KgFqbIxZmZh")
                 ],[
                     InlineKeyboardButton(
                         "➕ Add Me To Your Group", url=f"https://t.me/Tg_Vc_00_Bot?startgroup=true")
@@ -51,7 +51,7 @@ welcome_captcha_group = 2
 async def welcome(_, message: Message):
     chat_id = message.chat.id
     if not await is_served_chat(chat_id):
-        await message.reply_text(f"**__Not in allowed chats.__**\n\nMusic Private is only for allowed chats. Ask any Sudo User to allow your chat.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
+        await message.reply_text(f"**__Not in allowed chats.__**\n\nMusic's Private is only for allowed chats. Ask any Sudo User to allow your chat.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
         return await app.leave_chat(chat_id)
     for member in message.new_chat_members:
         try:
@@ -75,7 +75,7 @@ async def start(_, message: Message):
         await message.reply_text(f"**__Not in allowed chats.__**\n\nMusic Private is only for allowed chats. Ask any Sudo User to allow your chat.\nCheck Sudo Users List [From Here](https://t.me/{BOT_USERNAME}?start=sudolist)")
         return await app.leave_chat(chat_id)
     out = start_pannel()
-    await message.reply_text(f"Thanks for having me in {message.chat.title}.\nMusic is alive.\n\nFor any assistance or help, checkout our support group and channel.", reply_markup=InlineKeyboardMarkup(out[1]))
+    await message.reply_text(f"Thanks for having me in {message.chat.title}.\nMusic Bot is alive.\n\nFor any assistance or help, checkout our support group and channel.", reply_markup=InlineKeyboardMarkup(out[1]))
     return
         
 @Client.on_message(filters.private & filters.incoming & filters.command("start"))
@@ -85,7 +85,7 @@ async def play(_, message: Message):
         user_name = message.from_user.first_name
         rpk = "["+user_name+"](tg://user?id="+str(user_id)+")" 
         await app.send_message(message.chat.id,
-            text=f"Hello {rpk}!\n\nThis is Music Private Music Bot.\nI play music on Telegram's Voice Chats.\n\nOnly for selected chats.",
+            text=f"Hello {rpk}!\n\nThis is Private Music Bot.\nI play music on Telegram's Voice Chats.\n\nOnly for selected chats.",
             parse_mode="markdown",
             reply_markup=pstart_markup,
             reply_to_message_id=message.message_id
