@@ -1,4 +1,4 @@
-FROM python:3.10.0-slim-buster
+FROM python:3.9.7-slim-buster
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install git -y curl ffmpeg python3-pip
