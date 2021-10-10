@@ -25,6 +25,7 @@ from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, A
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from pyrogram.types import Message
 from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 from Music.MusicUtilities.helpers.thumbnails import gen_thumb
 from Music.MusicUtilities.helpers.chattitle import CHAT_TITLE
 from Music.MusicUtilities.helpers.ytdl import ytdl_opts 
@@ -196,8 +197,10 @@ async def stop_cmd(_, message):
                 file = await convert(xxx)
                 await music.pytgcalls.change_stream(
                     chat_id, 
-                    InputAudioStream(
-                        file,
+                    InputStream(
+                        InputAudioStream(
+                            file,
+                        ),
                     ),
                 )
                 thumbnail = (x["thumbnail"])
@@ -222,8 +225,10 @@ async def stop_cmd(_, message):
             else:      
                 await music.pytgcalls.change_stream(
                     chat_id, 
-                    InputAudioStream(
-                        afk,
+                    InputStream(
+                        InputAudioStream(
+                            afk,
+                        ),
                     ),
                 )
                 _chat_ = ((str(afk)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
