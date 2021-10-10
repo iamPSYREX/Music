@@ -10,6 +10,7 @@ from asyncio import QueueEmpty
 from pyrogram import Client, filters
 from pytgcalls import StreamType
 from pytgcalls.types.input_stream import InputAudioStream
+from pytgcalls.types.input_stream import InputStream
 from Music import app, BOT_USERNAME, dbb, SUDOERS
 import os
 import yt_dlp
@@ -231,8 +232,10 @@ async def skipvc(_,CallbackQuery):
                 file = await convert(xx)
                 await music.pytgcalls.change_stream(
                     chat_id, 
-                    InputAudioStream(
-                        file,
+                    InputStream(
+                        InputAudioStream(
+                            file,
+                        ),
                     ),
                 )
                 thumbnail = (x["thumbnail"])
@@ -260,8 +263,10 @@ async def skipvc(_,CallbackQuery):
             else:      
                 await music.pytgcalls.change_stream(
                     chat_id, 
-                    InputAudioStream(
-                        afk,
+                    InputStream(
+                        InputAudioStream(
+                            afk,
+                        ),
                     ),
                 )
                 _chat_ = ((str(afk)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
@@ -424,8 +429,10 @@ Personal Playlist Playing."""
                     await add_active_chat(chat_id)
                     await music.pytgcalls.join_group_call(
                         chat_id, 
-                        InputAudioStream(
-                            file,
+                        InputStream(
+                            InputAudioStream(
+                                file,
+                            ),
                         ),
                         stream_type=StreamType().local_stream,
                     )
@@ -568,8 +575,10 @@ Group Playlist Playing."""
                     await add_active_chat(chat_id)
                     await music.pytgcalls.join_group_call(
                         chat_id, 
-                        InputAudioStream(
-                            file,
+                        InputStream(
+                            InputAudioStream(
+                                file,
+                            ),
                         ),
                         stream_type=StreamType().local_stream,
                     )
