@@ -1,4 +1,4 @@
-# Music1
+# Music
 
 ### Deploy To Heroku 
 
