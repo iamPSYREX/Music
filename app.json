@@ -8,65 +8,67 @@
         "SESSION_NAME1": {
             "description": "fill with the pyrogram session string from account 1",
             "required": true
+            "value": "AQDF0uGLnR2BSKsYmzH7UE8X4Az0Sbsm-_ltueEpZVjOHuQm7DmDM-EIB4_RnzALkngkHg3rEcZgFKtpvWZglpuhgSG8vL2xwVEeEpjuayjMVZJTE7FfrbR4qmJzugPgwT4VSXVP2UfOuDV2OeeaLQpS1M22g-nPZj9ql2odH9x07dJOuXUkQ9-ZzfxYFfH98WaLLldHTZUqVN5BA3unOOvPWNzAxRX4CT8NH1NZ86rQGUy7K7H_Jcsjhjpv2pJ0NN8W1Fimhl2fz6633ucJtImdWtJPLnYtUJ3IteGdqIted47VZW9VJ3bxHTbf2z0Wq9RPY_QbDTNoUJE_EGuQkVEzb_Q5iQA"
         },
         "SESSION_NAME2": {
             "description": "fill with the pyrogram session string from account 2",
             "required": true
+            "value": "AQCFghWkSXiJbdb9IJ5kKN4g-t1MbJ2zAZ5zWNWEljol8IBpUI_B8V9t1JwynnHznqSBCkw3tQvFAnNiFnWUgDl9Fk3uaQ-1tDc_LCYkpQP3abh5VUATRiQsvH2NbMuYrq71SEqWi8jSlC6zPOVfL_DyQJkn0UNP2Da1f_vMhwSRGFNC2W1OT1nHYa__uF6gxZkLPRN1cyOi8kB-HtsJMOsAee4BdJJvQNRqZWDpz_d4_bgKRjSsob0mnSXMs5PMKBUPfaFONA2Z_FeT8tluSYdVeoIark3pfPQcfn5bYOqT3RGsJxLvpUjxTL9PfQ56FPy7RQyyCSmSiJ2gmOvXQj3kaI3PcQA"
         },
         "OWNER_ID": {
             "description": "fill with your telegram id as the owner of the bot",
             "required": true,
-            "value": ""
+            "value": "1782996378"
         },
         "ASS_ID": {
             "description": "fill with telegram id of account 1",
             "required": true,
-            "value": ""
+            "value": "1878276489"
         },
         "LOG_GROUP_ID": {
             "description": "create a private group and get the group id, add your bot as admin to the group too",
             "required": true,
-            "value": ""
+            "value": "-1001429892362"
         },
         "assnumber": {
             "description": "just fill 2 you can fill 1 too",
             "required": true,
-            "value": ""
+            "value": "1"
         },
         "API_ID": {
             "description": "your Api ID from my.telegram.org/apps",
             "required": true,
-            "value": ""
+            "value": "6702275"
         },
         "API_HASH": {
             "description": "your Api Hash from my.telegram.org/apps",
             "required": true,
-            "value": ""
+            "value": "1a77c74045f27f401a758542d1f7d096"
         },
         "SUDO_USERS": {
             "description": "fill with the user id who can access all function in your bot (separate with space).",
             "required": true,
-            "value": ""
+            "value": "1782996378"
         },
         "DURATION_LIMIT": {
             "description": "filled, don't change this !",
             "required": true,
-            "value": ""
+            "value": "540000"
         },
         "BOT_TOKEN": {
             "description": "fill with your bot token get from @BotFather on telegram",
             "required": false,
-            "value": ""
+            "value": "1882820111:AAH9GJMA1GH9jHJM-bjp7Wm7Uj1NrfjypCQ"
         },
         "MONGO_DB_URI2": {
             "description": "fill with the mongodb url 1 get from mongodb.cloud.com (don't use mine below !)",
             "required": false,
-            "value": ""
+            "value": "mongodb+srv://userbot:userbot@music.p1vej.mongodb.net/test?retryWrites=true&w=majority"
         },
         "MONGO_DB_URI": {
             "description": "fill with the mongodb url 2 get from mongodb.cloud.com (don't use mine below !)",
             "required": false,
-            "value": ""
+            "value": "mongodb+srv://userbot:userbot@music1.p1vej.mongodb.net/test?retryWrites=true&w=majority"
         }
     },
     "buildpacks": [
