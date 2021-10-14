@@ -8,12 +8,10 @@
         "SESSION_NAME1": {
             "description": "fill with the pyrogram session string from account 1",
             "required": true
-            "value": "AQDF0uGLnR2BSKsYmzH7UE8X4Az0Sbsm-_ltueEpZVjOHuQm7DmDM-EIB4_RnzALkngkHg3rEcZgFKtpvWZglpuhgSG8vL2xwVEeEpjuayjMVZJTE7FfrbR4qmJzugPgwT4VSXVP2UfOuDV2OeeaLQpS1M22g-nPZj9ql2odH9x07dJOuXUkQ9-ZzfxYFfH98WaLLldHTZUqVN5BA3unOOvPWNzAxRX4CT8NH1NZ86rQGUy7K7H_Jcsjhjpv2pJ0NN8W1Fimhl2fz6633ucJtImdWtJPLnYtUJ3IteGdqIted47VZW9VJ3bxHTbf2z0Wq9RPY_QbDTNoUJE_EGuQkVEzb_Q5iQA"
         },
         "SESSION_NAME2": {
             "description": "fill with the pyrogram session string from account 2",
             "required": true
-            "value": "AQCFghWkSXiJbdb9IJ5kKN4g-t1MbJ2zAZ5zWNWEljol8IBpUI_B8V9t1JwynnHznqSBCkw3tQvFAnNiFnWUgDl9Fk3uaQ-1tDc_LCYkpQP3abh5VUATRiQsvH2NbMuYrq71SEqWi8jSlC6zPOVfL_DyQJkn0UNP2Da1f_vMhwSRGFNC2W1OT1nHYa__uF6gxZkLPRN1cyOi8kB-HtsJMOsAee4BdJJvQNRqZWDpz_d4_bgKRjSsob0mnSXMs5PMKBUPfaFONA2Z_FeT8tluSYdVeoIark3pfPQcfn5bYOqT3RGsJxLvpUjxTL9PfQ56FPy7RQyyCSmSiJ2gmOvXQj3kaI3PcQA"
         },
         "OWNER_ID": {
             "description": "fill with your telegram id as the owner of the bot",
