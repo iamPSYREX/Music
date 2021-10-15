@@ -2,6 +2,7 @@ from Music import app, SUDOERS, BOT_ID
 from pyrogram import filters, Client
 from sys import version as pyver
 from pyrogram import __version__ as pyrover
+from pytgcalls import __version__ as pytover
 from pyrogram.types import Message
 import platform ,socket,re,uuid,json,psutil,logging
 from Music.MusicUtilities.database.gbanned import get_gbans_count
@@ -53,8 +54,9 @@ async def gstats(_, message):
 **Storage:** Used {used[:4]} GiB out of {total[:4]} GiB, free {free[:4]} GiB
 **Architecture:** {arch}
 **Ram:** {ram}
-**Python Ver:** {pyver.split()[0]}
-**Pyrogram Ver:** {pyrover}
+**Python Version:** {pyver.split()[0]}
+**Pyrogram Version:** {pyrover}
+**Py-tgcalls Version:** {pytover}
 
 [•]<u>__**Bot Stats**__</u>
 **Modules Loaded:** {modules_count}
