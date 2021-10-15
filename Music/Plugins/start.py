@@ -21,11 +21,11 @@ from Music.MusicUtilities.database.sudo import (get_sudoers, get_sudoers, remove
 def start_pannel():  
     buttons  = [
             [
-                InlineKeyboardButton(text="🎚 Commands Menu", url="https://t.me/technicalhunter")
+                InlineKeyboardButton(text="🎚 Commands Menu", url="https://telegra.ph/Music-Bot-10-10")
             ],
             [ 
-                InlineKeyboardButton(text="📨Official Channel", url="https://t.me/technicalhunter0"),
-                InlineKeyboardButton(text="📨Support Group", url="https://t.me/Technical_Hunter")
+                InlineKeyboardButton(text="📨Official Channel", url="https://t.me/joinchat/9gdl_KgFqbIxZmZh"),
+                InlineKeyboardButton(text="📨Support Group", url="https://t.me/joinchat/9gdl_KgFqbIxZmZh")
             ],
     ]
     return "🎛  **This is Music Music Bot**", buttons
@@ -34,12 +34,12 @@ pstart_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🧰 Commands List", url=f"https://t.me/technicalhunter0")],
+                        "🧰 Commands List", url=f"https://telegra.ph/Music-Bot-10-10")],
                 [
                     InlineKeyboardButton(
-                        "📲 Channel", url=f"https://t.me/Technical_Hunter"), 
+                        "📲 Channel", url=f"https://t.me/joinchat/9gdl_KgFqbIxZmZh"), 
                     InlineKeyboardButton(
-                        "💬 Support", url=f"https://t.me/technicalhunter")
+                        "💬 Support", url=f"https://t.me/joinchat/9gdl_KgFqbIxZmZh")
                 ],[
                     InlineKeyboardButton(
                         "➕ Add Me To Your Group", url=f"https://t.me/Tg_Vc_00_Bot?startgroup=true")
