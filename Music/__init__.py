@@ -11,8 +11,8 @@ from pyrogram import Client as Bot
 from Music.config import API_ID, API_HASH, BOT_TOKEN, MONGO_DB_URI, SUDO_USERS, LOG_GROUP_ID, OWNER_ID
 from pyrogram import Client, idle
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
-from aiohttp import ClientSession
 import time
+
 def initialize():
     global dbb
     dbb = {}
@@ -60,7 +60,6 @@ app = Client(
     API_HASH,
     bot_token=BOT_TOKEN,
 )
-aiohttpsession = ClientSession()
 
 client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
 
@@ -88,7 +87,7 @@ def all_info(app, client):
     
 print("[INFO]: STARTING BOT CLIENT")
 app.start()
-print("[INFO]: STARTING ASSISTANT ONE CLIENT")
+print("[INFO]: STARTING ASSISTANT CLIENT")
 client.start()
 print("[INFO]: LOADING BOT/ASSISTANT PROFILE INFO")
 all_info(app, client)
