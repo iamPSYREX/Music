@@ -10,7 +10,6 @@ from Music import converter
 from pyrogram import Client
 from pyrogram.types import Message
 from pyrogram.types import Voice
-from Music.config import assnumber
 from Music import (app, BOT_USERNAME, BOT_ID)
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.database.queue import (is_active_chat, add_active_chat, remove_active_chat, music_on, is_music_playing, music_off)
