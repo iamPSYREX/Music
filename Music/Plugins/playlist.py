@@ -20,7 +20,7 @@ from Music.MusicUtilities.database.playlist import (get_playlist_count, _get_pla
 from Music.MusicUtilities.helpers.inline import play_keyboard, confirm_keyboard, play_list_keyboard, close_keyboard, confirm_group_keyboard
 from Music.MusicUtilities.database.theme import (_get_theme, get_theme, save_theme)
 from Music.MusicUtilities.database.assistant import (_get_assistant, get_assistant, save_assistant)
-from Music.config import DURATION_LIMIT, ASS_ID, assnumber
+from Music.config import DURATION_LIMIT, ASS_ID
 from Music.MusicUtilities.helpers.decorators import errors
 from Music.MusicUtilities.helpers.filters import command
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
