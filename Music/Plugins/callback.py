@@ -23,7 +23,6 @@ import time as sedtime
 import asyncio
 import shutil
 from time import time
-import yt_dlp
 from Music import converter
 import aiohttp
 from aiohttp import ClientResponseError, ServerTimeoutError, TooManyRedirects
