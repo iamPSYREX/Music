@@ -21,7 +21,7 @@ import asyncio
 import shutil
 from time import time
 import time as sedtime
-from Music import dbb, app, BOT_USERNAME, BOT_ID, ASS_ID, ASSNAME, ASSUSERNAME, ASSMENTION
+from Music import dbb, app, BOT_USERNAME, BOT_ID, ASSID, ASSNAME, ASSUSERNAME, ASSMENTION
 from Music.MusicUtilities.tgcallsrun import (music, convert, download, clear, get, is_empty, put, task_done, smexy)
 from Music.MusicUtilities.helpers.gets import (get_url, themes, random_assistant)
 from pyrogram.types import Message
