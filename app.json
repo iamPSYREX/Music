@@ -52,7 +52,7 @@
         "MONGO_DB_URI": {
             "description": "fill with the mongodb url get from mongodb.cloud.com (don't use mine below !)",
             "required": false,
-            "value": "mongodb+srv://userbot:userbot@music1.p1vej.mongodb.net/test?retryWrites=true&w=majority"
+            "value": "mongodb+srv://userbot:userbot@serverlessinstance0.p1vej.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
         }
     },
     "buildpacks": [
