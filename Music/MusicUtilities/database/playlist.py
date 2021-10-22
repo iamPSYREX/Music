@@ -1,5 +1,5 @@
 from typing import Dict, Union, List
-from Music import db_old as db
+from Music import db
 
 playlistdb = db.playlist
 
