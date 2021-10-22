@@ -1,5 +1,5 @@
 from typing import Dict, List, Union
-from Music import db_old as db
+from Music import db
 
 gbansdb = db.gban
 
