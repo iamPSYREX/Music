@@ -22,8 +22,6 @@ initialize()
 print("[INFO]: INITIALIZING DATABASE")
 MONGODB_CLI = MongoClient(MONGO_DB_URI)
 db = MONGODB_CLI.wbb
-MONGODB_CLI = MongoClient(MONGO_OLD)
-db_old = MONGODB_CLI.wbb
 SUDOERS = SUDO_USERS
 OWNER = OWNER_ID
 async def load_sudoers():
