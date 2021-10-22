@@ -52,7 +52,7 @@ async def load_start():
             print("Error came while clearing db")
             pass     
     await app.send_message(LOG_GROUP_ID, "Bot Started")
-    await chacha.send_message(LOG_GROUP_ID, "Assistant Started")
+    await client.send_message(LOG_GROUP_ID, "Assistant Started")
     print("[INFO]: STARTED")
     
    
