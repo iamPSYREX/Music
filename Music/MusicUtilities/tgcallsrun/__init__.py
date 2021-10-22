@@ -6,4 +6,4 @@ from Music.MusicUtilities.tgcallsrun.downloader import download
 from Music.MusicUtilities.tgcallsrun.convert import convert
 from Music.MusicUtilities.tgcallsrun.music import run
 from Music.MusicUtilities.tgcallsrun.music import smexy as ASS_ACC
-smexy = 1
+ASS_ACC = 1
