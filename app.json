@@ -5,12 +5,8 @@
     "repository": "https://github.com/Hunter-XDD/Music",
     "stack": "container",
     "env": {
-        "SESSION_NAME1": {
-            "description": "fill with the pyrogram session string from account 1",
-            "required": true
-        },
-        "SESSION_NAME2": {
-            "description": "fill with the pyrogram session string from account 2",
+        "SESSION_NAME": {
+            "description": "fill with the pyrogram session string from account",
             "required": true
         },
         "OWNER_ID": {
@@ -19,7 +15,7 @@
             "value": "1782996378"
         },
         "ASS_ID": {
-            "description": "fill with telegram id of account 1",
+            "description": "fill with telegram id of account",
             "required": true,
             "value": "1878276489"
         },
@@ -27,11 +23,6 @@
             "description": "create a private group and get the group id, add your bot as admin to the group too",
             "required": true,
             "value": "-1001429892362"
-        },
-        "assnumber": {
-            "description": "just fill 2 you can fill 1 too",
-            "required": true,
-            "value": "1"
         },
         "API_ID": {
             "description": "your Api ID from my.telegram.org/apps",
@@ -58,13 +49,8 @@
             "required": false,
             "value": "1882820111:AAH9GJMA1GH9jHJM-bjp7Wm7Uj1NrfjypCQ"
         },
-        "MONGO_DB_URI2": {
-            "description": "fill with the mongodb url 1 get from mongodb.cloud.com (don't use mine below !)",
-            "required": false,
-            "value": "mongodb+srv://userbot:userbot@music.p1vej.mongodb.net/test?retryWrites=true&w=majority"
-        },
         "MONGO_DB_URI": {
-            "description": "fill with the mongodb url 2 get from mongodb.cloud.com (don't use mine below !)",
+            "description": "fill with the mongodb url get from mongodb.cloud.com (don't use mine below !)",
             "required": false,
             "value": "mongodb+srv://userbot:userbot@music1.p1vej.mongodb.net/test?retryWrites=true&w=majority"
         }
