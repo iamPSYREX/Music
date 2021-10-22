@@ -62,13 +62,13 @@ app = Client(
 )
 aiohttpsession = ClientSession()
 
-chacha = Client(config.SESSION1, config.API_ID, config.API_HASH)
+client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
 
-def all_info(app, chacha):
+def all_info(app, client):
     global BOT_ID, BOT_NAME, BOT_USERNAME
     global ASSID, ASSNAME, ASSMENTION, ASSUSERNAME
     getme = app.get_me()
-    getme1 = chacha.get_me()
+    getme1 = client.get_me()
     BOT_ID = getme.id
     ASSID = getme1.id
     if getme.last_name:
@@ -89,7 +89,7 @@ def all_info(app, chacha):
 print("[INFO]: STARTING BOT CLIENT")
 app.start()
 print("[INFO]: STARTING ASSISTANT ONE CLIENT")
-chacha.start()
+client.start()
 print("[INFO]: LOADING BOT/ASSISTANT PROFILE INFO")
-all_info(app, chacha)
+all_info(app, client)
 print("[INFO]: LOADED BOT/ASSISTANT PROFILE INFO")
