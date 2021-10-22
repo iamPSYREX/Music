@@ -9,7 +9,8 @@ from Music import config
 import importlib
 from pyrogram import Client as Bot
 from Music.config import API_ID, API_HASH, BOT_TOKEN, MONGO_DB_URI, SUDO_USERS, LOG_GROUP_ID, OWNER_ID
-from pyrogram import Client, idle
+from pyrogram import Client
+from aiohttp import ClientSession
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 import time
 
@@ -60,6 +61,7 @@ app = Client(
     API_HASH,
     bot_token=BOT_TOKEN,
 )
+aiohttpsession = ClientSession()
 
 client = Client(config.SESSION_NAME, config.API_ID, config.API_HASH)
 
