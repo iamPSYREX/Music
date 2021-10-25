@@ -56,7 +56,7 @@ async def gstats(_, message):
 **Ram:** {ram}
 **Python Version:** {pyver.split()[0]}
 **Pyrogram Version:** {pyrover}
-**Py-tgcalls Version:** {pytover.__version__}
+**PyTgCalls Version:** {pytover.__version__}
 
 [•]<u>__**Bot Stats**__</u>
 **Modules Loaded:** {modules_count}
