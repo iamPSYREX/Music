@@ -11,6 +11,8 @@ def play_markup(videoid, user_id):
             [
                 InlineKeyboardButton(text="▶️", callback_data=f'resumevc2'),
                 InlineKeyboardButton(text="⏸️", callback_data=f'pausevc2'),
+            ],
+            [
                 InlineKeyboardButton(text="⏭️", callback_data=f'skipvc2'),
                 InlineKeyboardButton(text="⏹️", callback_data=f'stopvc2')
             ],
@@ -55,6 +57,8 @@ play_keyboard = InlineKeyboardMarkup(
                     InlineKeyboardButton(
                         "⏸️", callback_data="pausevc"
                     ),
+                ],
+                [
                     InlineKeyboardButton(
                         "⏭️", callback_data="skipvc"
                     ),
@@ -75,6 +79,8 @@ def audio_markup(videoid, user_id):
             [
                 InlineKeyboardButton(text="▶️", callback_data=f'resumevc2'),
                 InlineKeyboardButton(text="⏸️", callback_data=f'pausevc2'),
+            ],
+            [
                 InlineKeyboardButton(text="⏭️", callback_data=f'skipvc2'),
                 InlineKeyboardButton(text="⏹️", callback_data=f'stopvc2')
             ],
@@ -141,7 +147,7 @@ start_keyboard = InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "📜 Commands", url="https://telegra.ph/Music-Music-Bot-05-28"
+                        "📜 Commands", url="https://telegra.ph/Music-Bot-10-10"
                     )
                 ],
                 [
@@ -210,10 +216,12 @@ def playlist_markup(user_name, user_id):
     buttons= [
             [
                 InlineKeyboardButton(text=f"Group's Playlist", callback_data=f'play_playlist {user_id}|group'),
+            ],
+            [
                 InlineKeyboardButton(text=f"{user_name[:8]}'s Playlist", callback_data=f'play_playlist {user_id}|personal'),
             ],
             [
                 InlineKeyboardButton(text="🗑 Close", callback_data="close2")              
             ],
         ]
-    return buttons 
+    return buttons
