@@ -49,7 +49,7 @@ async def gstats(_, message):
 **Global Stats of Private Music Bot**:\n\n
 [•]<u>__**System Stats**__</u>
 **Music Uptime:** {uptime}
-**System Proc:** Online
+**System Process:** Online
 **Platform:** {sc}
 **Storage:** Used {used[:4]} GiB out of {total[:4]} GiB, free {free[:4]} GiB
 **Architecture:** {arch}
