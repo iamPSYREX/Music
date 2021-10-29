@@ -55,8 +55,6 @@ play_keyboard = InlineKeyboardMarkup(
                     InlineKeyboardButton(
                         "⏸️", callback_data="pausevc"
                     ),
-                ],
-                [
                     InlineKeyboardButton(
                         "⏭️", callback_data="skipvc"
                     ),
