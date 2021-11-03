@@ -56,7 +56,7 @@ async def main():
     print("[INFO]: STARTED")
     
    
-loop = asyncio.get_running_loop()
+loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
 
 run()
