@@ -5,7 +5,7 @@
     "keywords": [
         "music", 
         "voice chat", 
-        "telegram",
+        "telegram"
     ],
     "repository": "https://github.com/Hunter-XDD/Music",
     "stack": "container",
@@ -76,6 +76,6 @@
         "worker": {
             "quantity": 1,
             "size": "free"
-        },
+        }
     }
 }
