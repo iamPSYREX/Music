@@ -1,8 +1,14 @@
 {
     "name": "Music",
+    "logo": "https://te.legra.ph/file/9f1701111d815073d743b.jpg",
     "description": "Music allow you to stream music trought the telegram voice chat feature.",
-    "keywords": ["music", "voice chat", "telegram"],
+    "keywords": [
+        "music", 
+        "voice chat", 
+        "telegram",
+    ],
     "repository": "https://github.com/Hunter-XDD/Music",
+    "stack": "container",
     "env": {
         "SESSION_NAME": {
             "description": "fill with the pyrogram session string from account",
@@ -71,6 +77,5 @@
             "quantity": 1,
             "size": "free"
         }
-    },
-    "stack": "container"
+    }
 }
