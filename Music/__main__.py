@@ -26,7 +26,7 @@ print(f"[INFO]: ASSISTANT STARTED AS {ASSNAME}!")
 
 
 
-async def load_start():
+async def main():
     restart_data = await clean_restart_stage()
     if restart_data:
         print("[INFO]: SENDING RESTART STATUS")
@@ -56,9 +56,8 @@ async def load_start():
     print("[INFO]: STARTED")
     
    
-loop = asyncio.new_event_loop()
-asyncio.set_event_loop(loop)
-loop.run_until_complete(load_start())
+loop = asyncio.set_event_loop()
+loop.run_until_complete(main())
 
 run()
 idle()
