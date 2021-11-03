@@ -56,8 +56,9 @@ async def load_start():
     print("[INFO]: STARTED")
     
    
-loop = asyncio.get_event_loop()
-loop.run_until_complete(load_start())
+loop = asyncio.new_event_loop()
+ayyncio.set_event_loop(loop)
+loop.run_until_complete(main())
 
 run()
 idle()
