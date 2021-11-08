@@ -18,6 +18,7 @@ dnspython
 future
 googletrans==4.0.0-rc1
 hurry.filesize
+httpx>=0.14.2
 motor
 psutil
 pykeyboard
