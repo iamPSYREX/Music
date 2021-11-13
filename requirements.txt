@@ -6,7 +6,6 @@ pillow
 git+https://github.com/pyrogram/pyrogram@master
 py-tgcalls
 pytube
-httpx==0.13.3
 wget
 python-dotenv
 search-engine-parser
