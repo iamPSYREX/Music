@@ -273,7 +273,7 @@ async def play(_, message: Message):
             reply_markup=InlineKeyboardMarkup(buttons),
         )  
         disable_web_page_preview=True
-        return   
+        return
     if await is_active_chat(chat_id):
         position = await put(chat_id, file=file)
         _chat_ = ((str(file)).replace("_","", 1).replace("/","", 1).replace(".","", 1))
@@ -353,7 +353,7 @@ async def startyuplay(_,CallbackQuery):
     if duration == "None":
         return await CallbackQuery.message.reply_text(f"Sorry!, Live Videos are not supported")      
     if CallbackQuery.from_user.id != int(user_id):
-        return await CallbackQuery.answer("This is not for you! Search You Own Song nigga", show_alert=True)
+        return await CallbackQuery.answer("This is not for you! Search You Own Song", show_alert=True)
     await CallbackQuery.message.delete()
     checking = f"[{CallbackQuery.from_user.first_name}](tg://user?id={userid})"
     url = (f"https://www.youtube.com/watch?v={id}")
@@ -482,6 +482,7 @@ async def popat(_,CallbackQuery):
     callback_data = CallbackQuery.data.strip()
     callback_request = callback_data.split(None, 1)[1]
     print(callback_request)
+    thumb ="cache/Results.png"
     userid = CallbackQuery.from_user.id 
     try:
         id , query, user_id = callback_request.split("|") 
@@ -529,7 +530,7 @@ async def popat(_,CallbackQuery):
     if i == 1:
         buttons = search_markup(ID1, ID2, ID3, ID4, ID5, duration1, duration2, duration3, duration4, duration5, user_id, query)
         await CallbackQuery.edit_message_text(
-            f"1️⃣<b>{title1}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n\n2️⃣<b>{title2}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n\n3️⃣<b>{title3}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n\n4️⃣<b>{title4}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n\n5️⃣<b>{title5}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>",    
+            f"1️⃣<b>{title1}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID1})__</u>\n\n2️⃣<b>{title2}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID2})__</u>\n\n3️⃣<b>{title3}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID3})__</u>\n\n4️⃣<b>{title4}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID4})__</u>\n\n5️⃣<b>{title5}</b>\n  ┗  🔗 <u>__[Get Additional Information](https://t.me/{BOT_USERNAME}?start=info_{ID5})__</u>",   
             reply_markup=InlineKeyboardMarkup(buttons),
         )  
         disable_web_page_preview=True
@@ -542,7 +543,7 @@ async def popat(_,CallbackQuery):
             reply_markup=InlineKeyboardMarkup(buttons),
         )  
         disable_web_page_preview=True
-        return    
+        return  
         
         
 @app.on_message(filters.command("playplaylist"))
